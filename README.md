@@ -2,7 +2,8 @@
 CMPE226 Group 22 Foody Foodie
 
 ## Database
-- 
+- Get the ERD file from google doc
+- Forward Engineering it via MySQL workbench
 
 ## Install
 - Install a webserver like apache or nginx
