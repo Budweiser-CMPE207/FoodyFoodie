@@ -65,7 +65,7 @@ echo "<table class='table table-striped table-bordered' style='margin-top: 5px'>
 while ($row = mysqli_fetch_array($result)) {
     echo "<tr>";
     echo "<td>" . $row['restaurant_id'] . "</td><td>"
-        ."<a href='#'>". $row['name'] . "</a></td><td>"
+        ."<a href='items.php?restaurant_id=".$row['restaurant_id']."'>". $row['name'] . "</a></td><td>"
         . $row['address'] . "</td><td>"
         . $row['phone'] . "</td><td>"
         . $row['description'] . "</td><td>"
