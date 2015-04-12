@@ -33,7 +33,7 @@ else{
 }
 include 'head.php';
 ?>
-<h3><a href="restaurants.php">Restaurants</a>--
+<h3><a href="restaurants.php">Restaurants</a>->
   <a href="items.php?restaurant_id=<?=$restaurant_id ?>"><?=$cur_name ?>(<?=$restaurant_id ?>)</a></h3>
 <button class="btn btn-success" style="margin-left: 10px" onclick="showItemForm()">Add an Item</button>
 
@@ -69,6 +69,7 @@ echo "<table class='table table-striped table-bordered' style='margin-top: 5px'>
         <th>Name</th>
         <th>Price</th>
         <th>Category</th>
+        <th>Buy</th>
       </tr>";
 while ($row = mysqli_fetch_array($result)) {
     echo "<tr>";
@@ -76,10 +77,24 @@ while ($row = mysqli_fetch_array($result)) {
         . $row['name'] . "</a></td><td>"
         . $row['price'] . "</td><td>"
         . $row['category'] . "</td>";
+    echo "<td><input class='buy' data-item_id=".$row['item_id']." data-name="
+      .$row['name']." data-price=".$row['price']
+      ." type='number' name='qty' min='0' max='10' value=0 onchange=getOrderRequest()></td>";
     echo "</tr>";
 }
 echo "</table>";
-
 mysqli_close($con);
+?>
+
+<div id="cart" style="display:none">
+  <h3>Shopping Cart</h3>
+  <table id="cartTable" class='table table-striped table-bordered'>
+  </table>
+
+  <span id="cartFoot"></span>
+  <button class="btn btn-success" style="margin-left: 10px" onclick="placeOrder()">Buy It</button>
+</div>
+
+<?php
 include "foot.php";
 ?>

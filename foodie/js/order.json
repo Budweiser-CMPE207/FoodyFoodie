@@ -1,0 +1,13 @@
+{
+  "restaurant_id":3,
+  "orders":[
+    {
+      "item_id":1,
+      "qty":3
+    },
+    {
+      "item_id":2,
+      "qty":5
+    }
+  ]
+}
