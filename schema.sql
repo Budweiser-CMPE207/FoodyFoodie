@@ -34,7 +34,7 @@ CREATE TABLE `Customers` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `membership_id_idx` (`membership_id`),
   CONSTRAINT `membership_id` FOREIGN KEY (`membership_id`) REFERENCES `Memberships` (`membership_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `Items` (
   PRIMARY KEY (`item_id`),
   KEY `restaurant_id_idx` (`restaurant_id`),
   CONSTRAINT `restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurants` (`restaurant_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,13 +145,13 @@ CREATE TABLE `Orders` (
   `raw_price` decimal(9,2) DEFAULT NULL,
   `real_price` decimal(9,2) DEFAULT NULL,
   `is_dine_in` tinyint(1) NOT NULL DEFAULT '1',
-  `created_at` time NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`),
   KEY `fk_Orders_Restaurants1_idx` (`restaurant_id`),
   KEY `fk_Orders_Customers1_idx` (`customer_id`),
-  CONSTRAINT `fk_Orders_Restaurants1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurants` (`restaurant_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_Orders_Customers1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_Orders_Customers1` FOREIGN KEY (`customer_id`) REFERENCES `Customers` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Orders_Restaurants1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurants` (`restaurant_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,4 +181,4 @@ CREATE TABLE `Restaurants` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-10 22:55:06
+-- Dump completed on 2015-04-11 22:58:04
