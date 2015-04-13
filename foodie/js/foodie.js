@@ -71,3 +71,11 @@ var placeOrder = function(){
     window.location.href = "orders.php";
   });
 }
+
+/*
+** for customers.php
+*/
+var showCustomerForm = function(){
+  var dom = document.getElementById("addCustomer");
+  dom.style.display= (dom.style.display=="none"?"block":"none");
+}
