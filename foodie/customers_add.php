@@ -1,7 +1,6 @@
 <?php
-$customer_id = $_POST["customer_id"]
 $name = $_POST["name"];
-$password = $_POST["password"]
+$password = $_POST["password"];
 $email =$_POST["email"];
 $phone = $_POST["phone"];
 $membership_id = $_POST["membership_id"];
@@ -19,8 +18,8 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
     exit;
 }
-$query = "INSERT INTO Customers (customer_id, name, email, password, phone, membership_id)
-     VALUES ('$customer_id', '$name', '$password', '$email', '$phone','$membership_id');";
+$query = "INSERT INTO Customers (name, email, password, phone, membership_id)
+     VALUES ( '$name', '$email',  '$password', '$phone','$membership_id');";
 mysqli_query($con,$query);
 mysqli_close($con);
 
