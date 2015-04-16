@@ -170,6 +170,9 @@ CREATE TABLE `Restaurants` (
   `sales_tax_rate` float DEFAULT '0',
   PRIMARY KEY (`restaurant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+ALTER TABLE `mydb`.`Customers` 
+ADD COLUMN `name` VARCHAR(45) NULL AFTER `customer_id`;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
