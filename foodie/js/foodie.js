@@ -79,3 +79,11 @@ var showCustomerForm = function(){
   var dom = document.getElementById("addCustomer");
   dom.style.display= (dom.style.display=="none"?"block":"none");
 }
+
+/**
+ * For deliveryboys.php
+ */
+var showDeliveryboysForm = function(){
+  var dom = document.getElementById("addDeliveryboy");
+  dom.style.display= (dom.style.display=="none"?"block":"none");
+}

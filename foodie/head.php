@@ -26,6 +26,7 @@
           <ul class="nav navbar-nav">
             <li><a href="restaurants.php">Home</a></li>
             <li><a href="orders.php">My Orders</a></li>
+            <li><a href="deliveryboys.php">Delivery Boys</a></li>
             <li><a href="https://github.com/Budweiser-CMPE207/FoodyFoodie">Github</a></li>
           </ul>
         </div><!--/.nav-collapse -->
