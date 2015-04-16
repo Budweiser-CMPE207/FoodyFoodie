@@ -25,6 +25,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="restaurants.php">Home</a></li>
+            <li><a href="customers.php">Customers</a></li>
             <li><a href="orders.php">My Orders</a></li>
             <li><a href="deliveryboys.php">Delivery Boys</a></li>
             <li><a href="https://github.com/Budweiser-CMPE207/FoodyFoodie">Github</a></li>
