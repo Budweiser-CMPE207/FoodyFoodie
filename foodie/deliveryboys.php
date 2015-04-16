@@ -10,7 +10,6 @@ include 'head.php';
 </form>
 <div id="addDeliveryboy" style="margin: 10px; display: none">
     <form action="deliveryboys_add.php" method="post" class="form" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="user" value="Tuo Lei" />
         <div class="form-group">
             <label for="name">Delivery Boy Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Your  Name">
@@ -50,7 +49,7 @@ else{
 }
 
 
-echo "<table class='table table-striped table-bordered' style='margin-top: 5px'>    
+echo "<table class='table table-striped table-bordered' style='margin-top: 5px'>
       <tr>
         <th>ID</th>
         <th>Name</th>

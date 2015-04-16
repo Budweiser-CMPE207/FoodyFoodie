@@ -10,7 +10,6 @@ include 'head.php';
 </form>
 <div id="addRestaurant" style="margin: 10px; display: none">
     <form action="restaurants_add.php" method="post" class="form" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="user" value="Tuo Lei" />
         <div class="form-group">
             <label for="name">Restaurant Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Your Restaurant Name">
