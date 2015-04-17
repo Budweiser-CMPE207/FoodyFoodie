@@ -9,5 +9,11 @@
       "item_id":2,
       "qty":5
     }
-  ]
+  ],
+  "delivery":{
+    "address":"700 S 13th ST",
+    "phone":"5105797336",
+    "delivery_boy_id":1,
+    "zip_code":95112
+  }
 }

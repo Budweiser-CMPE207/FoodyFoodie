@@ -36,6 +36,10 @@ var getOrderRequest = function(){
     if(cur.qty>0)
       result.orders.push(cur);
   }
+  result.delivery = {};
+  result.delivery.address = $("#address").val();
+  result.delivery.phone = $("#phone").val();
+  result.delivery.delivery_boy_id = $("#zip_code").val();
   cartRender(result);
   return result;
 }
@@ -66,7 +70,12 @@ var cartRender = function(data){
 }
 
 var placeOrder = function(){
-  var json = JSON.stringify(getOrderRequest());
+  var data = getOrderRequest();
+  var json = JSON.stringify(data);
+  if(data.delivery.address=="" || data.delivery.phone==""){
+    alert("You need to fill in address, phone and select a delivery boy!");
+    return;
+  }
   $.post( "orders_add.php", json).done(function( data ) {
     window.location.href = "orders.php";
   });

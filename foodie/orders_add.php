@@ -12,6 +12,12 @@ $cur_customer_id = 1;
 
 $data = json_decode(file_get_contents('php://input'), true);
 $orders = $data['orders'];
+
+$delivery = $data['delivery'];
+$address = $delivery['address'];
+$phone = $delivery['phone'];
+$delivery_boy_id = $delivery['delivery_boy_id'];
+
 $restaurant_id = $data['restaurant_id'];
 
 //GET info for cur restaurant
@@ -27,6 +33,10 @@ $add_order_query = "INSERT INTO Orders (customer_id, restaurant_id)
 
 mysqli_query($con,$add_order_query);
 $cur_order_id = mysqli_insert_id($con);
+
+$add_delivery_query = "INSERT INTO Deliveries (delivery_id, address, phone, delivery_boy_id, status)
+     VALUES ('$cur_order_id', '$address', '$phone', '$delivery_boy_id', 'assigned');";
+mysqli_query($con,$add_delivery_query);
 
 // Create each Order_Item
 foreach($orders as $key => $value){

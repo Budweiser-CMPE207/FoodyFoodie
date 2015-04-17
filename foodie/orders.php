@@ -45,7 +45,17 @@ while ($order = mysqli_fetch_array($orders)){
           . $row['qty']*$row['price'] . "</td>";
       echo "</tr>";
   }
-  echo "</table><hr/>";
+  echo "</table>";
+  //GET info for cur restaurant
+  $delivery_query = "SELECT * FROM Deliveries WHERE delivery_id=$cur_order_id;";
+  $result = mysqli_query($con, $delivery_query);
+  $row = mysqli_fetch_assoc($result);
+  if(count($row)>0){
+    echo "<h3>Delivered To:".$row['address']." and Phone: ".$row['phone']."</h3>";
+  }else{
+    echo "<h3>Eat in</h3>";
+  }
+  echo "<hr/>";
 }
 
 

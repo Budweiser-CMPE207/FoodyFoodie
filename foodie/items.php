@@ -31,6 +31,8 @@ else{
     $result = mysqli_query($con, "SELECT * FROM Items
       WHERE restaurant_id=$restaurant_id ORDER BY item_id DESC;");
 }
+$boys = mysqli_query($con, "SELECT * FROM DeliveryBoys;");
+
 include 'head.php';
 ?>
 <h3><a href="restaurants.php">Restaurants</a>->
@@ -44,7 +46,6 @@ include 'head.php';
 </form>
 <div id="addItem" style="margin: 10px; display: none">
     <form action="items_add.php" method="post" class="form" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="user" value="Tuo Lei" />
         <div class="form-group">
             <label for="name">Item Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Your Entry Name">
@@ -92,6 +93,25 @@ mysqli_close($con);
   </table>
 
   <span id="cartFoot"></span>
+  <div class="form-group">
+      <label for="name">Address</label>
+      <input type="text" class="form-control" id="address" name="address" placeholder="Your Address">
+  </div>
+  <div class="form-group">
+      <label for="name">Phone</label>
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Your Phone">
+  </div>
+  <select id="zip_code" name="zip_code">
+    <?php
+      while($row = mysqli_fetch_array($boys)) {
+        $delivery_boy_id = $row['delivery_boy_id'];
+        $name = $row['name'];
+        $zip_code = $row['zip_code'];
+        echo "<option value='$delivery_boy_id'>$name:$zip_code</option>";
+      }
+    ?>
+
+  </select>
   <button class="btn btn-success" style="margin-left: 10px" onclick="placeOrder()">Buy It</button>
 </div>
 
