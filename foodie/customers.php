@@ -10,8 +10,6 @@ include 'head.php';
 </form>
 <div id="addCustomer" style="margin: 10px; display: none">
     <form action="customers_add.php" method="post" class="form" role="form" enctype="multipart/form-data">
-        <input type="hidden" name="user" value="Tuo Lei" />
-       
         <div class="form-group">
             <label for="name">Customer Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Your Customer Name">
@@ -31,7 +29,7 @@ include 'head.php';
             <label for="address">Membership</label>
             <input type="text" class="form-control" id="membership_id" name="membership_id">
         </div>
-        
+
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
@@ -68,7 +66,7 @@ while ($row = mysqli_fetch_array($result)) {
         . $row['name'] . "</td><td>"
         . $row['email'] . "</td><td>"
         . $row['phone'] . "</td><td>"
-        . $row['membership_id'] . "</td><td>";
+        . $row['membership_id'] . "</td>";
     echo "</tr>";
 }
 echo "</table>";
