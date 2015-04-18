@@ -1,4 +1,14 @@
 <?php
+session_start();
+$host  = $_SERVER['HTTP_HOST'];
+$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+if(isset($_SESSION['userid'])){
+  //Do nothing
+}else{
+  $extra = 'login.html';
+  header("Location: http://$host$uri/$extra");
+}
+
 include 'db.php';
 
 //connect to database
@@ -7,8 +17,7 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
 }
 
-// TODO should using session
-$cur_customer_id = 1;
+$cur_customer_id = $_SESSION['userid'];
 
 $data = json_decode(file_get_contents('php://input'), true);
 $orders = $data['orders'];

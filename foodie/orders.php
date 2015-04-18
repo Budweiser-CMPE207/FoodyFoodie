@@ -1,4 +1,14 @@
 <?php
+include 'head.php';
+$host  = $_SERVER['HTTP_HOST'];
+$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+if(isset($_SESSION['userid'])){
+  //Do nothing
+}else{
+  $extra = 'login.html';
+  header("Location: http://$host$uri/$extra");
+}
+
 include 'db.php';
 
 //connect to database
@@ -7,16 +17,14 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
 }
 
-// TODO should using session
-$cur_customer_id = 1;
+$cur_customer_id = $_SESSION['userid'];
 
 $orders = mysqli_query($con, "SELECT * FROM Orders, Restaurants
   WHERE customer_id=$cur_customer_id and Orders.restaurant_id = Restaurants.restaurant_id
   ORDER BY created_at DESC;");
 
-include 'head.php';
 ?>
-<h3><a href="restaurants.php">Restaurants</a></h3>
+<h3>My Orders</h3>
 
 <?php
 while ($order = mysqli_fetch_array($orders)){

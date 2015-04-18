@@ -2,7 +2,7 @@
 include 'head.php';
 ?>
 <h3><a href="restaurants.php">Restaurants</a></h3>
-<button class="btn btn-success" style="margin-left: 10px" onclick="showRestaurantForm()">Add a Restaurant</button>
+<button class="btn btn-success admin" style="margin-left: 10px" onclick="showRestaurantForm()">Add a Restaurant</button>
 
 <form action="" method="get" class="form-inline" style="display: inline-block;margin-left: 10px">
     <input type="text" class="form-control" name="query" value="KFC">

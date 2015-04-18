@@ -37,7 +37,7 @@ include 'head.php';
 ?>
 <h3><a href="restaurants.php">Restaurants</a>->
   <a href="items.php?restaurant_id=<?=$restaurant_id ?>"><?=$cur_name ?>(<?=$restaurant_id ?>)</a></h3>
-<button class="btn btn-success" style="margin-left: 10px" onclick="showItemForm()">Add an Item</button>
+<button class="btn btn-success admin" style="margin-left: 10px" onclick="showItemForm()">Add an Item</button>
 
 <form action="items.php" method="get" class="form-inline" style="display: inline-block;margin-left: 10px">
     <input type="text" class="form-control" name="query" value="drink">
