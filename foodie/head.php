@@ -15,7 +15,7 @@
     <style>
       html body .admin{
         <?php
-          if($_SESSION['username']!='admin'){
+          if($_SESSION['foodie_username']!='admin'){
             echo "display:none;";
           }
         ?>
@@ -46,7 +46,7 @@
             <?php
               if(isset($_SESSION['userid'])){
                 echo '<li><a href="login.php?action=logout">Sign Out</a></li>';
-                echo '<li><a>Current User: '.$_SESSION['username'].'</a></li>';
+                echo '<li><a>Current User: '.$_SESSION['foodie_username'].'</a></li>';
               }else{
                 echo '<li><a href="login.html">Sign In</a></li>';
               }

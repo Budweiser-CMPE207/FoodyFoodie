@@ -2,7 +2,7 @@
 session_start();
 if($_GET['action'] == "logout"){
   unset($_SESSION['userid']);
-  unset($_SESSION['username']);
+  unset($_SESSION['foodie_username']);
   //redirect
   $host  = $_SERVER['HTTP_HOST'];
   $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -27,7 +27,7 @@ $password = MD5($_POST['password']);
 $check_query = mysql_query("SELECT customer_id FROM Customers WHERE name='$username' AND password='$password' LIMIT 1");
 if($result = mysql_fetch_array($check_query)){
 
-  $_SESSION['username'] = $username;
+  $_SESSION['foodie_username'] = $username;
   $_SESSION['userid'] = $result['customer_id'];
   //redirect
   $host  = $_SERVER['HTTP_HOST'];
